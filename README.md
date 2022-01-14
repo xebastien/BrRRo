@@ -1,6 +1,10 @@
 # BrRRo
 Brazilian Regime Robot for MT5
 
+One buy and sell per day if alavancagem is used (my broker).
+
+One position per day is better to optimize the market changes.
+
 The csv file provide regime parameters for the five specific ETF from which the portfolio will be built:
 'SMAC11', 'NASD11', 'IVVB11', 'BRAX11', 'EURP11' 
 or 'Br SmallCaps', 'US Tech', 'US large', 'Br Large Caps' and 'EurStocks'.
