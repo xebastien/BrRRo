@@ -1,5 +1,8 @@
 # BrRRo
 Brazilian Regime Robot for MT5
+=============================
+On-going delivery - wait for cleaning and instructions
+==========================
 
 One buy and sell per day if alavancagem is used (my broker).
 
