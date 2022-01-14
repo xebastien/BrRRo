@@ -1,7 +1,14 @@
 # BrRRo
 Brazilian Regime Robot for MT5
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The csv file provide regime parameters for the five specific ETF from which the portfolio will be built:
+'SMAC11', 'NASD11', 'IVVB11', 'BRAX11', 'EURP11' 
+or 'Br SmallCaps', 'US Tech', 'US large', 'Br Large Caps' and 'EurStocks'.
+
+Brasilians on one side and US/EUR on the other are largely correlated but their combination should offer Hedging opportunities.
+
+
+___________________________________________________________________________________________________________
 The little IBrXata.py script
 
 Simple strategy for long only portfolio.
