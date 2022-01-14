@@ -1,6 +1,6 @@
 # BrRRo
 Brazilian Regime Robot for MT5
-=============================
+
 On-going delivery - wait for cleaning and instructions
 ==========================
 
@@ -13,6 +13,7 @@ The csv file provide regime parameters for the five specific ETF from which the 
 or 'Br SmallCaps', 'US Tech', 'US large', 'Br Large Caps' and 'EurStocks'.
 
 Estimating the parameters is actually the main challenges in this regime appraoch. The provided parameters were evaluated from 15 years of daily data and with MATLAB functions (not provided because not really mine).
+I will in the future provide other parameters files with different type of assets.
 
 Brasilians on one side and US/EUR on the other are largely correlated but their combination should offer Hedging opportunities.
 
