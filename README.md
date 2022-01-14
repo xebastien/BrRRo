@@ -9,6 +9,8 @@ The csv file provide regime parameters for the five specific ETF from which the 
 'SMAC11', 'NASD11', 'IVVB11', 'BRAX11', 'EURP11' 
 or 'Br SmallCaps', 'US Tech', 'US large', 'Br Large Caps' and 'EurStocks'.
 
+Estimating the parameters is actually the main challenges in this regime appraoch. The provided parameters were evaluated from 15 years of daily data and with MATLAB functions (not provided because not really mine).
+
 Brasilians on one side and US/EUR on the other are largely correlated but their combination should offer Hedging opportunities.
 
 
