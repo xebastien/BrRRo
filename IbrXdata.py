@@ -1,8 +1,8 @@
 # %% Input data
-nb_days = '126d'    # time window before now to calculate the performance [84 (CHC) -126 days (me)]
+nb_days = '7d'    # time window before now to calculate the performance [84 (CHC) -126 days (me)]
 nAssets = 10        # how many assets in your portfolio ? 10 is good
-perfI = "ISR"       # ISR = Israelsen ajusted Sharpe Ratio or "CHC" = Carlos Heitor Campani, see his website
-mymoney = 10000     # your wealth
+perfI = "CHC"       # ISR = Israelsen ajusted Sharpe Ratio or "CHC" = Carlos Heitor Campani, see his website
+mymoney = 3012     # your wealth
 
 #Import packages
 import pandas as pd
@@ -27,7 +27,7 @@ data = pd.read_html(r.text)[3]["Ativo"]# valid for second link
 sp = data.to_list()
 # filter missing tickers from list
 for k in reversed(range(len(sp))):
-    if (' ' in sp[k]) == True:
+    if (' ' in sp[k]) == True or ('4' in sp[k]) == True :
         sp.pop(k)
     else:
         sp[k] = sp[k]+'.SA'
@@ -44,7 +44,7 @@ sp.append("VVAR3.SA")
 
 
 # Fetch data for the last period
-df = yf.download(sp,period = nb_days,interval="1d")
+df = yf.download(sp,period = nb_days,interval="1m")
 dv = df["Volume"]
 df = df["Adj Close"]
 dfc = df.pct_change().fillna(0)
@@ -101,15 +101,20 @@ else:
 weights0 = np.ones([nAssets]) / (np.arange(0,nAssets) +3)
 weights1 = weights0/np.sum(weights0)
 ID.insert(4,"Weights %",0)
+ID.insert(5,"Shares",0)
 ID["Weights %"].iloc[0:nAssets]=weights1[0:nAssets]*100   
+ID["Shares"].iloc[0:nAssets]=np.floor(mymoney/ID["Price"].iloc[0:nAssets]*weights1[0:nAssets])
+ID = ID.drop("Av. Daily. Volume",axis=1)
 
-
+pd.options.display.max_rows = 90
 
 print("Porfolio assets and weights")
-print(ID[0:10])
+print(ID[0:11])
 
 
 
 
 # in case yu want to export the fetched data
-# dfc.to_csv("""C:\\Users\\sberu\\Documents\\Scripts\\PythonFinance\\Data_indices\\IBrX100_5ans.csv""")
+#dfc.to_csv("""C:\\Users\\sberu\\Documents\\Scripts\\PythonFinance\\Data_indices\\IBrX100_5ans.csv""")
+#dv.to_csv("""C:\\Users\\sberu\\Documents\\Scripts\\PythonFinance\\Data_indices\\IBrX100_5ans_vol.csv""")
+dfc.to_csv("""C:\\Users\\sberu\\Documents\\Scripts\\PythonFinance\\Data_indices\\IBrX100_7days.csv""")
